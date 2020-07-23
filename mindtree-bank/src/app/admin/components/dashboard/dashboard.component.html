@@ -1,0 +1,59 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-text color="primary">
+        <h6>SI No.</h6>
+      </ion-text>
+    </ion-col>
+    <ion-col>
+      <ion-text color="primary">
+        <h6>Name</h6>
+      </ion-text>
+    </ion-col>
+    <ion-col>
+      <ion-text color="primary">
+        <h6>Email ID</h6>
+      </ion-text>
+    </ion-col>
+    <ion-col>
+      <ion-text color="primary">
+        <h6>Account Type</h6>
+      </ion-text>
+    </ion-col>
+    <ion-col>
+      <ion-text color="primary">
+        <h6>Status</h6>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ng-container *ngFor="let request of allRequests; let number = index">
+    <ion-row (click)="openRequest(request.id)" class="ion-activatable ripple-parent pointer">
+      <ion-col>
+        <ion-text>
+          <h6>{{number + 1}}</h6>
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          <h6>{{request.userDetails.firstName | titlecase}}&nbsp;{{request.userDetails.lastName | titlecase}}</h6>
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          <h6>{{request.userDetails.emailId}}</h6>
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          <h6>{{request.accountType.accountType}}</h6>
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          <h6>{{request.registrationStatus.registrationStatus}}</h6>
+        </ion-text>
+      </ion-col>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-row>
+  </ng-container>
+</ion-grid>

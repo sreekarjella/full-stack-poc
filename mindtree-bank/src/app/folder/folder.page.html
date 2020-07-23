@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> AdminLogin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Admin Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-md="6" size-lg="5" size-xs="12">
+          <ion-text color="primary">
+            <h4>Login Form</h4>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-md="6" size-lg="5" size-xs="12">
+          <ion-item>
+            <ion-input type="text" placeholder="Username" [(ngModel)]="userName"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-md="6" size-lg="5" size-xs="12">
+          <ion-item>
+            <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-md="6" size-lg="5" size-xs="12">
+          <ion-button expand="block" (click)="adminLogin()" [disabled]="userName.length === 0 || password.length === 0">Login</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

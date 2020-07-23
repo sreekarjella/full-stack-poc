@@ -1,0 +1,138 @@
+<form [formGroup]="customerForm" (ngSubmit)="customerFormSubmit()">
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>First Name:</ion-label>
+                    <ion-input formControlName="firstName" type="text"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Last Name:</ion-label>
+                    <ion-input formControlName="lastName" type="text"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Email Id:</ion-label>
+                    <ion-input formControlName="emailId" type="email"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Contact No:</ion-label>
+                    <ion-input formControlName="contactNumber" type="tel"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Address Line 1:</ion-label>
+                    <ion-input formControlName="addressLine1" type="text"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Address Line 2:</ion-label>
+                    <ion-input formControlName="addressLine2" text="text"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Date of Birth:</ion-label>
+                    <ion-datetime displayFormat="MM/DD/YYYY" max="2004-01-01" formControlName="dob"></ion-datetime>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Religion:</ion-label>
+                    <ion-input formControlName="religion" text="text"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Branch Name:</ion-label>
+                    <ion-select formControlName="branchName">
+                        <ion-select-option *ngFor="let branch of branches" [value]="branch">{{branch.address}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Account Type:</ion-label>
+                    <ion-select formControlName="accountType">
+                        <ion-select-option *ngFor="let type of accountTypes" [value]="type">{{type.accountType}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Occupation:</ion-label>
+                    <ion-select formControlName="occupation">
+                        <ion-select-option *ngFor="let occupation of occupations" [value]="occupation">{{occupation.occupation}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Education:</ion-label>
+                    <ion-select formControlName="education">
+                        <ion-select-option *ngFor="let graduation of graduations" [value]="graduation">{{graduation.education}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Income Range:</ion-label>
+                    <ion-select formControlName="incomeRange">
+                        <ion-select-option *ngFor="let income of incomeRange" [value]="income">{{income.incomeRange}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Residential Status:</ion-label>
+                    <ion-select formControlName="residentialStatus">
+                        <ion-select-option *ngFor="let type of residenceTypes" [value]="type">{{type.residentialStatus}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Gender:</ion-label>
+                    <ion-select formControlName="gender">
+                        <ion-select-option *ngFor="let gender of genders" [value]="gender">{{gender.gender}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+                <ion-item>
+                    <ion-label>Marital Status:</ion-label>
+                    <ion-select formControlName="maritalStatus">
+                        <ion-select-option *ngFor="let status of maritalStatus" [value]="status">{{status.maritalStatus}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button type="submit" [disabled]="!customerForm.valid">Submit</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</form>

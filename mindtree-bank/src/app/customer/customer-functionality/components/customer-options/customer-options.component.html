@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Customer</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title size="large">Upload Documents</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="uploadForm" (ngSubmit)="submitUploadForm()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label color="primary">Pan Number:</ion-label>
+            <ion-input type="text" formControlName="panNumber"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label color="primary">Pan Image:</ion-label>
+            <ion-label *ngIf="uploadForm.value.panImage">{{uploadForm.value.panImage.name}}</ion-label>
+            <input class="invisible" type="file" id="pan-upload" (change)="panUpload($event)" />
+            <label for="pan-upload">Upload Pan card</label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label color="primary">Aadhar Number:</ion-label>
+            <ion-input type="text" formControlName="aadharNumber"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label color="primary">Aadhar Image:</ion-label>
+            <ion-label *ngIf="uploadForm.value.aadharImage">{{uploadForm.value.aadharImage.name}}</ion-label>
+            <input class="invisible" type="file" id="aadhar-upload" (change)="aadharUpload($event)" />
+            <label for="aadhar-upload">Upload Aadhar card</label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label color="primary">Photo:</ion-label>
+            <input class="invisible" type="file" id="photo-upload" (change)="photoUpload($event)" />
+            <label for="photo-upload">Upload photo</label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row  *ngIf="photoUrl">
+        <ion-col size="12">
+          <ion-item>
+            <ion-label color="primary">Preview</ion-label>
+            <ion-label *ngIf="uploadForm.value.photo">{{uploadForm.value.photo.name}}</ion-label>
+            <img [src]="photoUrl" alt="aadhar">
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" [disabled]="!uploadForm.valid">Submit</ion-button>
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+  </form>
+</ion-content>
