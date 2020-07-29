@@ -11,7 +11,7 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
   constructor(private authService: AuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = JSON.parse(sessionStorage.getItem('token'));
+    const token = sessionStorage.getItem('token');
     if (token && this.authService.isLoggedIn()) {
       req = this.addToken(req, token);
     }

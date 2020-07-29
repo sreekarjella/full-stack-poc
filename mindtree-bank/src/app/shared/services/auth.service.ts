@@ -34,7 +34,7 @@ export class AuthService {
   private storeAuthDetails(userName: string, token: AuthToken) {
     sessionStorage.setItem('user', userName);
     sessionStorage.setItem('token', token.token);
-    sessionStorage.setItem('expires_at', JSON.stringify(token.expiresAt));
+    sessionStorage.setItem('expires_at', token.expiresAt + '');
   }
 
   isLoggedIn(): boolean {
@@ -49,7 +49,7 @@ export class AuthService {
 
   getTokenExpiration() {
     const data = sessionStorage.getItem('expires_at');
-    return moment(JSON.parse(data));
+    return moment(data);
   }
 
   logOut() {

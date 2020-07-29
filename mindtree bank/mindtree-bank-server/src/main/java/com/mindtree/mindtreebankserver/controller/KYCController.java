@@ -24,7 +24,6 @@ public class KYCController {
 	
 	@RequestMapping(path = "upload-kyc-details", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> saveKYCDetais(@RequestBody List<UserDocuments> kycData) {
-		System.out.println(kycData);
 		try {
 			kycService.saveKycDetails(kycData);
 		} catch (Exception e) {

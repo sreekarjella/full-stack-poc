@@ -11,4 +11,6 @@ public interface CustomerService {
 	Boolean clearTable() throws Exception;
 
 	List<Registration> registered() throws Exception;
+	
+	String updateRegistration(Registration customer) throws Exception;
 }

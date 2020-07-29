@@ -37,5 +37,11 @@ public class CustomerServiceLayer implements CustomerService {
 	public List<Registration> registered() throws Exception {
 		return registrationRepository.findAll();
 	}
+	
+	@Override
+	public String updateRegistration(Registration customer) throws Exception {
+		registrationRepository.save(customer);
+		return "Successfully updated Registration entity";
+	}
 
 }

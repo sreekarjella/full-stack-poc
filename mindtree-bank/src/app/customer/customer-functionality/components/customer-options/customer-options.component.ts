@@ -54,7 +54,7 @@ export class CustomerOptionsComponent implements OnInit {
 
   submitUploadForm() {
     this.request.registrationStatus = this.registrationService.findRegistrationStatus(Status.DocumentUploaded);
-    this.kycService.updateRegistrationStatus(this.request).subscribe();
+    this.registrationService.updateRequest(this.request).subscribe();
     this.kycService.saveKycDetails(this.userDocuments).subscribe();
     this.kycService.uploadKYCData(this.uploadForm).subscribe((response: string) => {
       this.successAlert.subHeader = response;

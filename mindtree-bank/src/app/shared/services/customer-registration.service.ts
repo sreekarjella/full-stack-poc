@@ -233,7 +233,6 @@ export class CustomerRegistrationService {
 
   registerCustomer(customerForm: FormGroup): Observable<string> {
     const customerData = this.extractFormData(customerForm);
-    console.log(customerData);
     if (this.customerAlreadyRegistered(customerData)) {
       return of('Duplicate Registration');
     }

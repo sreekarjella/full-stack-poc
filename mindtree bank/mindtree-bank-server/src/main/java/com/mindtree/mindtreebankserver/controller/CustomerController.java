@@ -46,7 +46,6 @@ public class CustomerController {
 	@RequestMapping(path = "/customer", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> registerCustomer(@RequestBody Registration customer) {
 		try {
-			System.out.println(customer);
 			return new ResponseEntity<String>(customerService.registerCustomer(customer), HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -57,7 +56,7 @@ public class CustomerController {
 	@RequestMapping(path = "/update-request", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> updateRequest(@RequestBody Registration customer) {
 		try {
-			customerService.registerCustomer(customer);
+			customerService.updateRegistration(customer);
 			return new ResponseEntity<String>("Successfully updated the request", HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<String>("Error occured while updating the request", HttpStatus.BAD_REQUEST);
